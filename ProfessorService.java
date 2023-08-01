@@ -50,24 +50,24 @@ public class ProfessorService {
 	}
 	public void deletar (Long idProfessor) throws ProfessorException {
 		if (idProfessor == null) {
-			throw new ProfessorException("O Id do Professor não pode ser nulo.");
+			throw new ProfessorException(MENSAGEM_PROFESSOR_NULO);
 		}
 		professorRepository.deleteById(idProfessor);
 	}
 	public Professor consultar (Long idProfessor) throws ProfessorException {
 		if (idProfessor == null) {
-			throw new ProfessorException ("O Id do Professor não pode ser nulo.");
+			throw new ProfessorException (MENSAGEM_PROFESSOR_NULO);
 		}
 		Optional<Professor> professorOptional = professorRepository.findById(idProfessor);
 		if(professorOptional.isPresent()) {
 			return professorOptional.get();
 		}
-		throw new RuntimeException("Este Professor não existe.");
+		throw new RuntimeException(MENSAGEM_PROFESSOR_NAO_EXISTE);
 	}
 	
 	public List<Professor> findByNome(String nome) throws ProfessorException{
 	    if(nome == null) {
-	    	throw new ProfessorException ("O nome do Professor deve ser informado.");
+	    	throw new ProfessorException (MENSAGEM_NOME_PROFESSOR_NULO_VAZIO);
 	    }
 		return professorRepository.findByNomeLike(nome);
 	}
