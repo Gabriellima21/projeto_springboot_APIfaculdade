@@ -68,7 +68,7 @@ public class ProfessorServiceTest {
 		p.setStatus(StatusEnum.A);
 		Professor professorEsperado = new Professor();
 		professorEsperado.setNome("Lucas");
-		professorEsperado.setStatus(StatusEnum.I);
+		professorEsperado.setStatus(StatusEnum.A);
 		
 		Mockito.when(professorRepository.save(p)).thenReturn(professorEsperado);
 		
